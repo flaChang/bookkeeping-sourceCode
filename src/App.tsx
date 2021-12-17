@@ -1,5 +1,5 @@
 import React from 'react';
-import {Routes, Route, Link} from "react-router-dom";
+import {Routes, Route, Link,Navigate} from "react-router-dom";
 
 function App() {
     return (
@@ -10,28 +10,16 @@ function App() {
                     <li><Link to="/statistics">Statistics</Link></li>
                     <li><Link to="/money">Money</Link></li>
                     <li><Link to="/tags">Tags</Link></li>
-                    <li><Link to="/">Home</Link></li>
                 </ul>
-
             </nav>
             <Routes>
-                <Route path="/" element={<Home/>}/>
                 <Route path="tags" element={<Tags/>}/>
                 <Route path="money" element={<Money/>}/>
                 <Route path="statistics" element={<Statistics/>}/>
+                <Route path="/" element={<Navigate to="/money" />} />
+                <Route path='*' element={<Nomatch/>} />
             </Routes>
         </div>
-    );
-}
-
-function Home() {
-    return (
-        <>
-            <main>
-                <h2>Welcome to the homepage!</h2>
-                <p>You can do this, I believe in you.</p>
-            </main>
-        </>
     );
 }
 
@@ -60,5 +48,9 @@ function Statistics() {
         <div>统计</div>
     )
 }
-
+function Nomatch(){
+    return(
+        <div>404</div>
+    )
+}
 export default App;
