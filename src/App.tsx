@@ -2,6 +2,8 @@ import React from 'react';
 import {Routes, Route,  Navigate} from "react-router-dom";
 import styled from "styled-components";
 import Nav from 'Components/nav'
+
+
 const Wrapper = styled.div`
   height: 100vh;
   display: flex;
