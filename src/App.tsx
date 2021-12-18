@@ -5,7 +5,6 @@ import Tags from "views/tag";
 import Statistics from "views/statistics";
 import Nomatch from "views/nomatch";
 
-
 function App() {
     return (
         <>
