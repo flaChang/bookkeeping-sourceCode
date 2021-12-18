@@ -1,10 +1,7 @@
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import React from "react";
-
-require('icons/money.svg');
-require('icons/tag.svg');
-require('icons/statistic.svg');
+import Icon from "./icon";
 
 
 const NavWrapper = styled.nav`
@@ -39,24 +36,19 @@ const Nav = () => {
             <ul>
                 <li>
                     <Link to="/tags">
-                        <svg className='icon'>
-                            <use xlinkHref='#tag'/>
-                        </svg>
+                        <Icon name='tag'/>
                         <div>Tags</div>
                     </Link>
                 </li>
-                <li><Link to="/money">
-                    <svg className='icon'>
-                        <use xlinkHref='#money'/>
-                    </svg>
+                <li>
+                    <Link to="/money">
+                    <Icon name='money'/>
                     <div>Money</div>
                 </Link>
                 </li>
                 <li>
                     <Link to="/statistics">
-                        <svg className='icon'>
-                            <use xlinkHref='#statistic'/>
-                        </svg>
+                        <Icon name="statistic"/>
                         <div>Statistics</div>
                     </Link>
                 </li>
