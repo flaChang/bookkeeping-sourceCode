@@ -3,8 +3,8 @@ import React from "react";
 import styled from "styled-components";
 
 const TagsSection = styled.section`
-  background: #ffffff;padding: 12px 16px;
-
+  background: #ffffff;padding: 12px 16px;flex-grow: 1;
+  display: flex;flex-direction: column;justify-content: flex-end;align-items: flex-start;
   > ol {margin: 0 -12px;
 
     > li {
@@ -19,7 +19,6 @@ const TagsSection = styled.section`
     border-bottom: 1px solid #333;color: #666;margin-top: 10px;
   }
 `
-
 const NotesSection = styled.section`
   background: #f5f5f5;padding: 0 16px;font-size: 14px;
   > label{display: flex;align-items: center;
@@ -51,7 +50,7 @@ const NumberPadSection = styled.section`
                  inset 0 5px 5px -5px rgba(0,0,0,0.25);
    }
    > .pad{
-     > button {font-size: 18px;float: left;width: 25%;height: 64px;
+     > button {font-size: 18px;float: left;width: 25%;height: 64px;border: none;
        &.ok{height: 128px;float: right;}
        &.dot{width: 50%;}
        &:nth-child(1){background: red;}
@@ -64,9 +63,13 @@ const NumberPadSection = styled.section`
    }
 `
 
+const MyLayout = styled(Layout)`  
+    display: flex;
+    flex-direction: column;
+`
 function Money() {
     return (
-        <Layout>
+        <MyLayout>
             <TagsSection>
                 <ol>
                     <li>衣</li>
@@ -109,7 +112,7 @@ function Money() {
                     <button>.</button>
                 </div>
             </NumberPadSection>
-        </Layout>
+        </MyLayout>
     )
 }
 
