@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import React, {useState} from "react";
 
-const NotesSection = styled.section`
+const Wrapper = styled.section`
   background: #f5f5f5;padding: 0 16px;font-size: 14px;
   > label{display: flex;align-items: center;
     > span { margin-right: 16px;white-space: nowrap;}
@@ -10,4 +11,20 @@ const NotesSection = styled.section`
       }
     }
 `
+const NotesSection:React.FC=()=>{
+    const [note,setNote]=useState('')
+
+    return (
+        <Wrapper>
+            <label>
+                <span>备注</span>
+                <input type='text' placeholder='添加备注'
+                       value={note}
+                       onChange={(e)=>setNote(e.target.value)}
+                />
+            {/*使用受控组件来获取input的值*/}
+            </label>
+        </Wrapper>
+    )
+}
 export {NotesSection};
