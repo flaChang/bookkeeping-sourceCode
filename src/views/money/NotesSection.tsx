@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 
 const Wrapper = styled.section`
   background: #f5f5f5;padding: 0 16px;font-size: 14px;
@@ -13,16 +13,23 @@ const Wrapper = styled.section`
 `
 const NotesSection:React.FC=()=>{
     const [note,setNote]=useState('')
-
+    const refInput = useRef<HTMLInputElement>(null)
+    const onBlur =()=>{
+        if(refInput.current!==null){
+            console.log(refInput.current.value);
+            setNote(refInput.current.value)
+        }
+    }
     return (
         <Wrapper>
             <label>
                 <span>备注</span>
                 <input type='text' placeholder='添加备注'
-                       value={note}
-                       onChange={(e)=>setNote(e.target.value)}
+                       ref={refInput}
+                       defaultValue={note}
+                       onBlur={onBlur}
                 />
-            {/*使用受控组件来获取input的值*/}
+            {/*使用非受控组件来获取input的值*/}
             </label>
         </Wrapper>
     )
