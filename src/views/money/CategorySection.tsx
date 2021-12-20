@@ -14,21 +14,26 @@ const Wrapper = styled.section`
   }
 `
 
-const CategorySection:React.FC=()=>{
+type Props={
+    value:'-'|"+";
+    onChange:(value:'-'|"+")=>void;
+}
+
+const CategorySection:React.FC<Props> =(props)=>{
     const stateMap = {
         '+':"收入",
         '-':'支出'
     }
     type X = keyof typeof stateMap
     const [stateList] = useState<X[]>(['-','+'])
-    const[category,setCategory] = useState("-")
+    const category = props.value
     return(
         <Wrapper>
             <ul>
                 {stateList.map(c=>
                     <li key={c}
                         className={category=== c ?'selected':''}
-                        onClick={()=>{setCategory(c)}}>{stateMap[c]}</li>
+                        onClick={()=>{props.onChange(c)}}>{stateMap[c]}</li>
                 )}
             </ul>
         </Wrapper>
