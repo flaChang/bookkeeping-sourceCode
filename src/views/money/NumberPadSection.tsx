@@ -24,7 +24,15 @@ const Wrapper = styled.section`
 `
 
 const NumberPadSection:React.FC=()=>{
-    const [output,setOutput] =useState<string>('0')
+    const [output,_setOutput] =useState<string>('0')
+    const setOutput = (output:string)=>{
+        if(output.length>16){
+            output=output.slice(0,16)
+        }else if(output.length===0){
+            output="0"
+        }
+        _setOutput(output)
+    }
     const onClickFather = (e:React.MouseEvent)=>{
         const inText=(e.target as HTMLButtonElement).textContent;
         if(inText===null){return}
@@ -39,18 +47,28 @@ const NumberPadSection:React.FC=()=>{
             case '8':
             case '9':
             case '0':
-            case '.':
                 if(output==="0"){
                     setOutput(inText)
                 }else{
                     setOutput(output+inText)
                 }
                 break;
+            case '.':
+                if(output.indexOf('.')>=0){return;}
+                setOutput(output+'.')
+                break;
             case '删除':
+                if(output.length===1){
+                    setOutput('')
+                }else{
+                    setOutput(output.slice(0,-1))
+                }
                 break;
             case '清空':
+                setOutput('0')
                 break;
             case 'OK':
+
                 break;
         }
 
