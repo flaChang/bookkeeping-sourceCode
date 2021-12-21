@@ -45,19 +45,22 @@ const Nav = () => {
         <NavWrapper>
             <ul>
                 <li>
-                    <NavLink className={(navData) => navData.isActive ? 'active' : ""} to="/tags">
+                    <NavLink className={(navData) => navData.isActive ? 'active' : ""}
+                             to="/tags">
                         <Icon name='tag'/>
                         <div>Tags</div>
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink className={(navData) => navData.isActive ? 'active' : ""} to="/money">
+                    <NavLink className={(navData) => navData.isActive ? 'active' : ""}
+                             to="/money">
                         <Icon name='money'/>
                         <div>Money</div>
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink className={(navData) => navData.isActive ? 'active' : ""} to="/statistics">
+                    <NavLink className={(navData) => navData.isActive ? 'active' : ""}
+                             to="/statistics">
                         <Icon name="statistic"/>
                         <div>Statistics</div>
                     </NavLink>
