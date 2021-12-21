@@ -46,7 +46,7 @@ function Tags() {
             <TagList>
                 {tags.map(tag =>
                     <li key={tag}>
-                        <NavLink to={'/tags/111'}>
+                        <NavLink to={'/tags/'+ tag}>
                             <span className="onLine">{tag}</span>
                             <Icon name="rightArrow"/>
                         </NavLink>
