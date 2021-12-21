@@ -5,6 +5,9 @@ import Layout from "Components/layout";
 import Icon from "Components/icon";
 import {Button} from "Components/Button";
 import styled from "styled-components";
+import {Input} from "../Components/Input";
+import {Space} from "../Components/Space";
+import {Center} from "../Components/Center";
 
 const Top = styled.header`
   display: flex;
@@ -13,6 +16,11 @@ const Top = styled.header`
   padding: 14px;
   background: #fff;
 
+`
+const InputWrapper = styled.div`
+  background: #fff;
+  padding: 0 16px;
+  margin-top: 8px;
 `
 type Params = {
     id: string
@@ -30,12 +38,16 @@ function TagsInside() {
                 <Icon/>
             </Top>
             <div>
-                <label>
-                    <span>标签名</span>
-                    <input type="text" placeholder="请输入标签名"/>
-                </label>
+                <InputWrapper>
+                    <Input label='标签名' type='text' placeholder="请输入标签名"/>
+                </InputWrapper>
             </div>
-            <Button>删除标签</Button>
+            <Center>
+                <Space/>
+                <Space/>
+                <Button>删除标签</Button>
+            </Center>
+
         </Layout>
 
     );

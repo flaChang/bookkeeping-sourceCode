@@ -5,6 +5,8 @@ import styled from "styled-components";
 import Icon from "../Components/icon";
 import {NavLink} from "react-router-dom";
 import {Button} from "Components/Button";
+import {Center} from "Components/Center";
+import {Space} from "Components/Space";
 
 const TagList = styled.ol`
   font-size: 16px;
@@ -21,16 +23,6 @@ const TagList = styled.ol`
       align-items: center;
     }
   }
-`
-
-const Center = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
-const Space = styled.div`    
-  height: 24px;
 `
 
 function Tags() {
