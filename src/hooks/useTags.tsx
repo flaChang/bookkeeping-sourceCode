@@ -1,5 +1,5 @@
 import {useEffect, useRef, useState} from "react";
-import {createID} from "./lib/createID";
+import {createID} from "../lib/createID";
 import {useUpdate} from "hooks/useUpdate";
 
 

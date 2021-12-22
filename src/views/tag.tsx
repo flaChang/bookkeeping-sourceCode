@@ -1,6 +1,6 @@
 import Layout from "../Components/layout";
 import React from "react";
-import {useTags} from "useTags";
+import {useTags} from "hooks/useTags";
 import styled from "styled-components";
 import Icon from "../Components/icon";
 import {NavLink} from "react-router-dom";
