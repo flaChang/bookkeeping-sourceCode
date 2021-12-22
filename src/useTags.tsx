@@ -1,14 +1,25 @@
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {createID} from "./lib/createID";
+import {useUpdate} from "hooks/useUpdate";
 
-const defaultTags=[
-    {id: createID(), name: '衣'},
-    {id: createID(), name: '食'},
-    {id: createID(), name: '住'},
-    {id: createID(), name: '行'},
-]
+
 const useTags = () => {
-    const [tags, setTags] = useState<{ id: number, name: string }[]>(defaultTags);
+    const [tags, setTags] = useState<{ id: number, name: string }[]>([]);
+    useEffect(() => {
+        let localTags = (JSON.parse(window.localStorage.getItem('tags') || '[]'))
+        if (localTags.length === 0) {
+            localTags = [
+                {id: createID(), name: '衣'},
+                {id: createID(), name: '食'},
+                {id: createID(), name: '住'},
+                {id: createID(), name: '行'},
+            ]
+        }
+        setTags(localTags)
+    }, [])
+    useUpdate(() => {
+        window.localStorage.setItem('tags', JSON.stringify(tags))
+    }, [tags])
     const findTag = (id: number) => tags.filter(tag => tag.id === id)[0]
     const findTagIndex = (id: number) => {
         let result = -1;             //防止出现循环结束没有发现id对应的i
@@ -21,12 +32,24 @@ const useTags = () => {
         return result
     }
     const updateTag = (id: number, obj: { name: string }) => {
-        const index = findTagIndex(id)
-        const tagClone = JSON.parse(JSON.stringify(tags))
-        tagClone.splice(index, 1, {id: id, name: obj.name})
-        setTags(tagClone)
+        setTags(tags.map(tag => {
+            if (tag.id === id) {
+                return {id, name: obj.name};
+            } else {
+                return tag
+            }
+        }))
     }
-    return {tags, setTags,findTag,updateTag}
+    const deleteTag = (id: number) => {
+        setTags(tags.filter(tag => tag.id !== id))
+    }
+    const addTag = () => {
+        const tagName = window.prompt('新标签的名称为');
+        if (tagName !== null && tagName !== '') {
+            setTags([...tags, {id: createID(), name: tagName}])
+        }
+    }
+    return {tags, setTags, findTag, updateTag, deleteTag, addTag, findTagIndex}
 }
 
 
