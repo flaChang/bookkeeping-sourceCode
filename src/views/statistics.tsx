@@ -59,7 +59,7 @@ function Statistics() {
                 <CategorySection value={category}
                                  onChange={value => setCategory(value)}/>
             </CategoryWrapper>
-            {array.map(([date,record])=><div>
+            {array.map(([date,record])=><div key={date}>
                 <Header>
                     {date}
                 </Header>
