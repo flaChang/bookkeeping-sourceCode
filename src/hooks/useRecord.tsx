@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {useUpdate} from "./useUpdate";
 
-type RecordItem = {
+export type RecordItem = {
     tagIds: number[]
     note: string
     category: "+" | "-"
@@ -21,7 +21,7 @@ export const useRecord = () => {
 
     const addRecord = (newRecord: newRecordItem) => {
         if(newRecord.amount<=0 ){ alert('好像这笔账不是有必要记'); return false}
-        if(newRecord.tagIds.length===0 && newRecord.category!=='+'){ alert('选择这笔钱是用来干什么的更有利于理财~'); return false}
+        if(newRecord.tagIds.length===0 ){ alert('写上这笔钱得到/花掉的原因更有利于理财哦~'); return false}
         const record = {...newRecord, createdAt: (new Date()).toISOString()}
         setRecords([...records, record])
     }
