@@ -3,7 +3,7 @@ import React, {useState} from "react";
 
 const Wrapper = styled.section`
   font-size: 24px;
-  > ul { display: flex;background: #c4c4c4;
+  > ul { display: flex;
     > li {
       width: 50%;text-align: center;padding: 16px 0;position: relative;
       &.selected::after{

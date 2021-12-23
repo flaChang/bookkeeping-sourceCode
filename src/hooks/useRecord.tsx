@@ -8,7 +8,7 @@ type RecordItem = {
     amount: number
     createdAt: string
 }
-type newRecordItem = Omit<RecordItem, 'createdAt'>
+type newRecordItem = Omit<RecordItem, 'createdAt'>   //除了createdAt之外，属性均继承
 
 export const useRecord = () => {
     const [records, setRecords] = useState<RecordItem[]>([])
@@ -20,8 +20,8 @@ export const useRecord = () => {
     }, [records])
 
     const addRecord = (newRecord: newRecordItem) => {
-        if(newRecord.amount<=0){ alert('好像这笔账不是有必要记'); return false}
-        if(newRecord.tagIds.length===0){ alert('选择这笔钱是用来干什么的更有利于理财~'); return false}
+        if(newRecord.amount<=0 ){ alert('好像这笔账不是有必要记'); return false}
+        if(newRecord.tagIds.length===0 && newRecord.category!=='+'){ alert('选择这笔钱是用来干什么的更有利于理财~'); return false}
         const record = {...newRecord, createdAt: (new Date()).toISOString()}
         setRecords([...records, record])
     }
