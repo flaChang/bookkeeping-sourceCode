@@ -23,6 +23,7 @@ type Props = {
     className?:string
     scrollTop?:number
 }
+
 const Layout: React.FC<Props> = (props) => {
     const mainRef = useRef<HTMLDivElement>(null)
     useEffect(()=>{

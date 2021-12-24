@@ -1597,6 +1597,11 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
+"@types/classnames@^2.2.6":
+  "integrity" "sha1-zGWMoxm2NVOZ78H1uegY8aJL+Zk="
+  "resolved" "https://registry.npmmirror.com/@types/classnames/download/@types/classnames-2.2.10.tgz"
+  "version" "2.2.10"
+
 "@types/cssnano@^4.0.1":
   "integrity" "sha1-Z/qRJ1PYCXOgFudoSkf+3zOKrP8="
   "resolved" "https://registry.npmmirror.com/@types/cssnano/download/@types/cssnano-4.0.1.tgz"
@@ -2929,6 +2934,11 @@
     "isobject" "^3.0.0"
     "static-extend" "^0.1.1"
 
+"classnames@^2.2.6":
+  "integrity" "sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q=="
+  "resolved" "https://registry.npmmirror.com/classnames/download/classnames-2.2.6.tgz"
+  "version" "2.2.6"
+
 "clean-css@^5.2.2":
   "integrity" "sha1-06fG7iURAR4FFxmDi9z4MU3EVI0="
   "resolved" "https://registry.npmmirror.com/clean-css/download/clean-css-5.2.2.tgz?cache=0&sync_timestamp=1634992314911&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fclean-css%2Fdownload%2Fclean-css-5.2.2.tgz"
@@ -3450,6 +3460,11 @@
     "whatwg-mimetype" "^2.3.0"
     "whatwg-url" "^8.0.0"
 
+"dayjs@^1.10.7":
+  "integrity" "sha512-P6twpd70BcPK34K26uJ1KT3wlhpuOAPoMwJzpsIWUxHZ7wpmbdZL/hQqBDfz7hGurYSa5PhzdhDHtt319hL3ig=="
+  "resolved" "https://registry.npmmirror.com/dayjs/download/dayjs-1.10.7.tgz"
+  "version" "1.10.7"
+
 "debug@^2.2.0":
   "integrity" "sha1-XRKFFd8TT/Mn6QpMk/Tgd6U2NB8="
   "resolved" "https://registry.npmmirror.com/debug/download/debug-2.6.9.tgz"
@@ -3819,6 +3834,14 @@
   "integrity" "sha1-Or5DrvODX4rgd9E23c4PJ2sEAOY="
   "resolved" "https://registry.nlark.com/duplexer/download/duplexer-0.1.2.tgz"
   "version" "0.1.2"
+
+"echarts@^5.2.2":
+  "integrity" "sha512-yxuBfeIH5c+0FsoRP60w4De6omXhA06c7eUYBsC1ykB6Ys2yK5fSteIYWvkJ4xJVLQgCvAdO8C4mN6MLeJpBaw=="
+  "resolved" "https://registry.npmmirror.com/echarts/download/echarts-5.2.2.tgz"
+  "version" "5.2.2"
+  dependencies:
+    "tslib" "2.3.0"
+    "zrender" "5.2.1"
 
 "ee-first@1.1.1":
   "integrity" "sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0="
@@ -9263,6 +9286,11 @@
   "resolved" "https://registry.nlark.com/tslib/download/tslib-2.3.1.tgz"
   "version" "2.3.1"
 
+"tslib@2.3.0":
+  "integrity" "sha1-gDuM2rPhK6WBpMpByIObuw2ssJ4="
+  "resolved" "https://registry.nlark.com/tslib/download/tslib-2.3.0.tgz"
+  "version" "2.3.0"
+
 "tsutils@^3.21.0":
   "integrity" "sha1-tIcX05TOpsHglpg+7Vjp1hcVtiM="
   "resolved" "https://registry.npm.taobao.org/tsutils/download/tsutils-3.21.0.tgz?cache=0&sync_timestamp=1615138426726&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftsutils%2Fdownload%2Ftsutils-3.21.0.tgz"
@@ -10007,3 +10035,10 @@
   "integrity" "sha1-ApTrPe4FAo0x7hpfosVWpqrxChs="
   "resolved" "https://registry.nlark.com/yocto-queue/download/yocto-queue-0.1.0.tgz?cache=0&sync_timestamp=1628812679256&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fyocto-queue%2Fdownload%2Fyocto-queue-0.1.0.tgz"
   "version" "0.1.0"
+
+"zrender@5.2.1":
+  "integrity" "sha1-X0u9qRW6bUErCxncJDG+qtBUF7s="
+  "resolved" "https://registry.nlark.com/zrender/download/zrender-5.2.1.tgz"
+  "version" "5.2.1"
+  dependencies:
+    "tslib" "2.3.0"

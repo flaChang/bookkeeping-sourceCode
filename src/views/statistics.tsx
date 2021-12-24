@@ -5,6 +5,7 @@ import styled from "styled-components";
 import {RecordItem, useRecord} from "../hooks/useRecord";
 import {useTags} from "../hooks/useTags";
 import dayjs from "dayjs";
+import {MoneyChart} from "Components/DisplayCharts";
 
 const CategoryWrapper = styled.div`
   background: #fff;
@@ -37,6 +38,23 @@ function Statistics() {
     const selectedRecords=()=>{
         return records.filter(r=>r.category===category)
     }
+    const [option, setOption] = useState({
+        xAxis: {
+
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        },
+        yAxis: {
+
+            name:'金额'
+        },
+        series: [
+            {
+                data: [820, 932, 901, 934, 1290, 1330, 1320],
+                type: 'line',
+            }
+        ],
+        tooltip:{show:true}
+    })
 
     selectedRecords().map(r=>{
         const key = dayjs(r.createdAt).format('YYYY-MM-DD')
@@ -59,6 +77,7 @@ function Statistics() {
                 <CategorySection value={category}
                                  onChange={value => setCategory(value)}/>
             </CategoryWrapper>
+            <MoneyChart option={option}/>
             {array.map(([date,record])=><div key={date}>
                 <Header>
                     {date}
