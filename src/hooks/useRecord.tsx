@@ -18,7 +18,6 @@ export const useRecord = () => {
     useUpdate(() => {
         window.localStorage.setItem('records', JSON.stringify(records))
     }, [records])
-
     const addRecord = (newRecord: newRecordItem) => {
         if(newRecord.amount<=0 ){ alert('好像这笔账不是有必要记'); return false}
         if(newRecord.tagIds.length===0 ){ alert('写上这笔钱得到/花掉的原因更有利于理财哦~'); return false}

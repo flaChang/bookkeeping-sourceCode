@@ -1,6 +1,5 @@
 import * as echarts from 'echarts'
 import React, {useEffect, useRef} from "react";
-require('echarts/lib/component/grid');
 
 type Chart = {
     title?: string,

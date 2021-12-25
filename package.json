@@ -42,6 +42,7 @@
     "jest": "^27.4.3",
     "jest-resolve": "^27.4.2",
     "jest-watch-typeahead": "^1.0.0",
+    "loadash": "^1.0.0",
     "mini-css-extract-plugin": "^2.4.5",
     "nide-sass": "npm:dart-sass@^1.25.0",
     "node-sass": "npm:dart-sass@1.25.0",
@@ -98,6 +99,7 @@
     ]
   },
   "devDependencies": {
+    "@types/lodash-es": "^4.17.5",
     "webpack": "^5.65.0"
   },
   "jest": {

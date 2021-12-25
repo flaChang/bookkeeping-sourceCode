@@ -6,6 +6,7 @@ import {RecordItem, useRecord} from "hooks/useRecord";
 import {useTags} from "hooks/useTags";
 import dayjs from "dayjs";
 import {MoneyChart} from "Components/DisplayCharts";
+import _ from 'lodash'
 
 
 const CategoryWrapper = styled.div`
@@ -33,10 +34,14 @@ const Header = styled.h3`
 const ChartWrapper = styled.div`
   height: 400px;
   width: 430%;
-  
+
 `
 const ChartingWrapper = styled.div`
   overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 function Statistics() {
@@ -54,6 +59,7 @@ function Statistics() {
             right: 0,
         },
         xAxis: {
+            axisTick: {alignWithLabel: false},
             data: ['1', '2', '3']
         },
         yAxis: {
@@ -62,17 +68,70 @@ function Statistics() {
         },
         series: [
             {
-                data: [],
+                symbolSize: 10,
+                data: ['1', '2', '3'],
                 type: 'line',
             }
         ],
         tooltip: {show: true}
     })
-    const recordArray: string[] = []
-    records.map(r => {
+    const today = new Date()
+    const newArray = []
+    const newHash: any = []
+    const finalHash: any = []
+    const resultHash: any = []
+
+    selectedRecords().map(r => {
         const key = dayjs(r.createdAt).format('YYYY-MM-DD')
-        recordArray.push(key)
-    });
+        const value = r.amount
+        newHash.push({key: key, value: value})
+    })
+
+    newHash.forEach((r: { key: any; value: number; }, i: any) => {
+        const key = r.key
+        if (!(key in finalHash)) {
+            finalHash[key] = []
+        }
+        finalHash[key].push(r.value)
+    })
+
+    const arrayA = Object.entries(finalHash).sort((a, b) => {
+        if (a[0] === b[0]) return 0
+        if (a[0] > b[0]) return -1
+        if (a[0] < b[0]) return 1
+        return 0
+    })
+    arrayA.map(([date, value]) => {
+        // @ts-ignore
+        const i = _.sum(value)
+        const j = date
+        resultHash.push({key: j, value: i})
+    })
+
+
+    for (let i = 0; i <= 29; i++) {
+        const dateString = dayjs(today)
+            .subtract(i, 'day').format('YYYY-MM-DD');
+        const found = _.find(resultHash, {
+            key: dateString
+        })
+        newArray.push({
+            date: dateString, value: found ? found.value : 0
+        })
+    }
+    console.log(newArray);
+    newArray.sort((a, b) => {
+        if (a.date > b.date) {
+            return 1
+        } else if (a.date === b.date) {
+            return 0
+        } else {
+            return -1
+        }
+    })
+
+    const keys = newArray.map(item => item.date)
+    const values = newArray.map(item => item.value)
 
     const x = () => setOption({
         grid: {
@@ -80,10 +139,8 @@ function Statistics() {
             right: 0,
         },
         xAxis: {
-            data: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
-                "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
-                "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"
-            ]
+            axisTick: {alignWithLabel: true},
+            data: keys
         },
         yAxis: {
             type: 'value',
@@ -91,7 +148,8 @@ function Statistics() {
         },
         series: [
             {
-                data: [],
+                symbolSize: 10,
+                data: values,
                 type: 'line',
             }
         ],
@@ -100,15 +158,18 @@ function Statistics() {
 
     useEffect(() => {
         x()
-    }, [records])
+    }, [records,category])
 
     useEffect(() => {
-        if(!chartWrapper.current){return}
+        if (!chartWrapper.current) {
+            return
+        }
         chartWrapper.current.scrollLeft = document.getElementById('dora')!.clientWidth
     }, [records])
 
     selectedRecords().map(r => {
         const key = dayjs(r.createdAt).format('YYYY-MM-DD')
+
         if (!(key in hash)) {
             hash[key] = []
         }
@@ -128,8 +189,8 @@ function Statistics() {
                 <CategorySection value={category}
                                  onChange={value => setCategory(value)}/>
             </CategoryWrapper>
-            <ChartingWrapper  ref={chartWrapper}>
-                <ChartWrapper id='dora' >
+            <ChartingWrapper ref={chartWrapper}>
+                <ChartWrapper id='dora'>
                     <MoneyChart option={option}/>
                 </ChartWrapper>
             </ChartingWrapper>
