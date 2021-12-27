@@ -7,6 +7,7 @@ type Props = {
     onChange: (value: number) => void;
     onOk?: () => void
 }
+
 const NumberPadSection: React.FC<Props> = (props) => {
     const [output,_setOutput] = useState(props.value.toString());
     const setOutput = (output: string) => {
@@ -29,7 +30,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
         if (inText === "OK") {
             if (props.onOk) {
                 props.onOk()
-            }  //待完善
+            }
             return;
         }
         if ('0123456789.'.split('').concat(['删除', '清空']).indexOf(inText) >= 0) {

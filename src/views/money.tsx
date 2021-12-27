@@ -14,8 +14,8 @@ const MyLayout = styled(Layout)`
 const CategoryWrapper= styled.div`  
     background: #c4c4c4;
 `
-type Category = "-" | "+"
 
+type Category = "-" | "+"
 const defaultFormData = {
     tagIds: [] as number[],
     note: "",
@@ -25,7 +25,7 @@ const defaultFormData = {
 
 function Money() {
     const [selected, setSelected] = useState(defaultFormData);
-    const { addRecord} = useRecord()
+    const {addRecord} = useRecord()
     const onChange = (obj: Partial<typeof selected>) => {
         setSelected({
             ...selected,
@@ -33,12 +33,10 @@ function Money() {
         })
     }
     const submit = () => {
-        if (addRecord(selected)) {
+        if(addRecord(selected)!==1){
             alert('保存成功')
             setSelected(defaultFormData)
         }
-
-
     }
     return (
         <MyLayout scrollTop={999}>
