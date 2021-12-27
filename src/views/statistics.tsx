@@ -8,7 +8,6 @@ import dayjs from "dayjs";
 import {MoneyChart} from "Components/DisplayCharts";
 import _ from 'lodash'
 
-
 const CategoryWrapper = styled.div`
   background: #fff;
 `
@@ -34,11 +33,9 @@ const Header = styled.h3`
 const ChartWrapper = styled.div`
   height: 400px;
   width: 430%;
-
 `
 const ChartingWrapper = styled.div`
   overflow: auto;
-
   &::-webkit-scrollbar {
     display: none;
   }
@@ -71,10 +68,12 @@ function Statistics() {
                 symbolSize: 10,
                 data: ['1', '2', '3'],
                 type: 'line',
+                smooth:true
             }
         ],
         tooltip: {show: true}
     })
+
     const today = new Date()
     const newArray = []
     const newHash: any = []
@@ -101,13 +100,13 @@ function Statistics() {
         if (a[0] < b[0]) return 1
         return 0
     })
+
     arrayA.map(([date, value]) => {
         // @ts-ignore
         const i = _.sum(value)
         const j = date
         resultHash.push({key: j, value: i})
     })
-
 
     for (let i = 0; i <= 29; i++) {
         const dateString = dayjs(today)
@@ -119,7 +118,7 @@ function Statistics() {
             date: dateString, value: found ? found.value : 0
         })
     }
-    console.log(newArray);
+
     newArray.sort((a, b) => {
         if (a.date > b.date) {
             return 1
@@ -151,6 +150,7 @@ function Statistics() {
                 symbolSize: 10,
                 data: values,
                 type: 'line',
+                smooth:true
             }
         ],
         tooltip: {show: true}
