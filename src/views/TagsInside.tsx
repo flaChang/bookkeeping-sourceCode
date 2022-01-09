@@ -15,6 +15,13 @@ const InputWrapper = styled.div`
   padding: 0 16px;
   margin-top: 8px;
 `
+const Delete = styled.div`
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+`
 type Params = {
     id: string
 }
@@ -51,8 +58,7 @@ function TagsInside() {
                     <Button onClick={() => {
                         deleteTag(tag.id)
                     }}> 删除标签</Button>
-                </Center></div> : <div >已删除</div>}
-
+                </Center></div> : <Delete><Space/><Space/><Space/>该标签已删除</Delete>}
         </Layout>
 
     );

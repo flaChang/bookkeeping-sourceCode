@@ -8,7 +8,6 @@ const Wrapper = styled.div`
   flex-direction: column;
   max-width: 500px;
   margin: auto;
-  
 `
 const Main = styled.div`
   flex-grow: 1;

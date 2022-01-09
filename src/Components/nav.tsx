@@ -47,21 +47,21 @@ const Nav = () => {
                     <NavLink className={(navData) => navData.isActive ? 'active' : ""}
                              to="/tags">
                         <Icon name='tag'/>
-                        <div>Tags</div>
+                        <div>标签</div>
                     </NavLink>
                 </li>
                 <li>
                     <NavLink className={(navData) => navData.isActive ? 'active' : ""}
                              to="/money">
                         <Icon name='money'/>
-                        <div>Money</div>
+                        <div>记一笔</div>
                     </NavLink>
                 </li>
                 <li>
                     <NavLink className={(navData) => navData.isActive ? 'active' : ""}
                              to="/statistics">
                         <Icon name="statistic"/>
-                        <div>Statistics</div>
+                        <div>统计</div>
                     </NavLink>
                 </li>
             </ul>
