@@ -8,7 +8,7 @@ const Wrapper = styled.section`
   > ol {margin: 0 -12px;
 
     > li {
-      background: #D9D9D9;border-radius: 18px;
+      background: #e5efff;border-radius: 18px;
       display: inline-block;padding: 3px 18px;
       font-size: 14px;margin: 8px 12px;
       &.selected{
@@ -19,7 +19,7 @@ const Wrapper = styled.section`
 
   > button {
     background: none;border: none;padding: 2px 4px;
-    border-bottom: 1px solid #333;color: #666;margin-top: 10px;
+    border-bottom: 1px solid #1677ff;color: #666;margin-top: 10px;
   }
 `
 type Props = {
