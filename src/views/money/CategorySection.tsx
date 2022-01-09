@@ -8,7 +8,7 @@ const Wrapper = styled.section`
       width: 50%;text-align: center;padding: 16px 0;position: relative;
       &.selected::after{
         content: '';display: block;width: 100%;left: 0;bottom: 0;
-        height: 3px;background: #333;position: absolute;
+        height: 3px;background: #1677ff;position: absolute;
       }
     }
   }

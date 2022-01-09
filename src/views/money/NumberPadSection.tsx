@@ -27,7 +27,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
         if (inText === null) {
             return
         }
-        if (inText === "OK") {
+        if (inText === "完成") {
             if (props.onOk) {
                 props.onOk()
             }
@@ -54,7 +54,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
                 <button>7</button>
                 <button>8</button>
                 <button>9</button>
-                <button className="ok">OK</button>
+                <button className="ok">完成</button>
                 <button className='dot'>0</button>
                 <button>.</button>
             </div>

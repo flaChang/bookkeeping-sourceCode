@@ -30,10 +30,9 @@ const NavWrapper = styled.nav`
         }
 
         &.active {
-          color: red;
-
+          color: #1677ff;
           .icon {
-            fill: blue;
+            fill: #1677ff;
           }
         }
       }

@@ -15,6 +15,9 @@ const Top = styled.header`
   line-height: 20px;
   padding: 14px;
   background: #fff;
+  .icon {
+    fill: #1677ff;
+  }
 
 `
 const InputWrapper = styled.div`
@@ -58,7 +61,7 @@ function TagsInside() {
                     <Button onClick={() => {
                         deleteTag(tag.id)
                     }}> 删除标签</Button>
-                </Center></div> : <div>tag 不存在</div>}
+                </Center></div> : <div >已删除</div>}
 
         </Layout>
 

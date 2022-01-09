@@ -16,6 +16,9 @@ const TagList = styled.ol`
     border-bottom: 1px solid #d5d5d9;
     line-height: 20px;
     margin-left: 16px;
+    .icon {
+      fill: #1677ff;
+    }
     >a {
       padding: 12px 16px 12px 0;
       display: flex;
