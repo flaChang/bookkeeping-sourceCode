@@ -7,11 +7,12 @@ import {NavLink} from "react-router-dom";
 import {Button} from "Components/Button";
 import {Center} from "Components/Center";
 import {Space} from "Components/Space";
+import {Top} from "../Components/Top";
 
 const TagList = styled.ol`
   font-size: 16px;
   background: #fff;
-
+  margin-top: 8px;
   > li {
     border-bottom: 1px solid #d5d5d9;
     line-height: 20px;
@@ -32,6 +33,9 @@ function Tags() {
     const {tags, addTag} = useTags()
     return (
         <Layout>
+            <Top>
+                <div>标签总览</div>
+            </Top>
             <TagList>
                 {tags.map(tag =>
                     <li key={tag.id}>
@@ -47,7 +51,6 @@ function Tags() {
                 <Space/>
                 <Button onClick={addTag}>新增标签</Button>
             </Center>
-
         </Layout>
     );
 }

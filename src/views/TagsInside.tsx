@@ -8,18 +8,8 @@ import styled from "styled-components";
 import {Input} from "../Components/Input";
 import {Space} from "../Components/Space";
 import {Center} from "../Components/Center";
+import {Top} from "../Components/Top";
 
-const Top = styled.header`
-  display: flex;
-  justify-content: space-between;
-  line-height: 20px;
-  padding: 14px;
-  background: #fff;
-  .icon {
-    fill: #1677ff;
-  }
-
-`
 const InputWrapper = styled.div`
   background: #fff;
   padding: 0 16px;
